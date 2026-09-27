@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-09-27T02:01:11Z",
+  "counts_by_type": {
+    "book": 2038,
+    "movie": 4890,
+    "tv": 1872
+  },
+  "counts_by_source": {
+    "openlibrary": 2038,
+    "tmdb": 6762
+  },
+  "dropped": {
+    "book_no_description": 162
+  },
+  "failed_fetches": 0,
+  "graph": {
+    "nodes": 12994,
+    "edges": 28349
+  },
+  "sources": [
+    "TMDB API (api.themoviedb.org)",
+    "Open Library API (openlibrary.org)"
+  ],
+  "notes": [
+    "adaptation_of edges unpopulated in v1: no reliable source",
+    "TMDB person ids and Open Library author keys stored in person_ref for future graph joins",
+    "descriptions trimmed to at most 3 sentences; text is verbatim from source APIs",
+    "books use edition_count as popularity signal; vote fields null"
+  ]
+}

@@ -1,0 +1,21 @@
+name: Deploy graph service to Fly.io
+
+# Manual only: needs the FLY_API_TOKEN repo secret (a Fly deploy token for
+# the pickfive-helix app). Day-to-day deploys go through build.yml (image to
+# GHCR) + `fly deploy --image` from an environment that can reach api.fly.io.
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Fly.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: <redacted>
